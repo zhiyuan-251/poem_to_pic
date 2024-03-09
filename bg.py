@@ -1,6 +1,7 @@
 import json
 from flask import Flask, render_template, request, session
 from PIL import Image
+from create_subset import create_subset_font
 import requests
 import os
 
@@ -94,6 +95,7 @@ def index(poemID):
         style_text += f'\n        #pcontent{{line-height: {1.2 * 13.5 / line_count * linespace_multiplier}em; text-align: justify; font-family: 仿宋}}'
         poemContent = '<p style="margin:0 0 0.5em 0; text-indent: 2em">' + poem[4].replace('\n', '</p><p style="margin:0 0 0.5em 0; text-indent: 2em">') + '</p>'
     tt = poem[1]
+    create_subset_font(tt)
     if len(tt) == 2: tt = tt[0] + ' ' + tt[1]
     at = poem[2]
     if len(at) == 2: at = at[0] + ' ' + at[1]
