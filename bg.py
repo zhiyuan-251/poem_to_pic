@@ -39,7 +39,7 @@ def index(poemID):
         if poem[5]:
             poem[5] = [foo.replace('<tag>', '#') for foo in poem[5]]
     
-    create_subset_font(tt, "./static/fonts/yqxwk.ttf", "./static/fonts/yqxwk_subset.ttf") # 生成题目字体    
+    create_subset_font(poem[1], "./static/fonts/yqxwk.ttf", "./static/fonts/yqxwk_subset.ttf") # 生成题目字体    
     create_subset_font(poem[2], "./static/fonts/kt.ttf", "./static/fonts/kt_subset.ttf") # 生成作者字体
     create_subset_font(poem[4], "./static/fonts/fs.ttf", "./static/fonts/fs_subset.ttf") # 生成正文字体
     
