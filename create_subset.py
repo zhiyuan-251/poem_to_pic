@@ -1,6 +1,6 @@
 from fontTools.subset import main as subset_main
 
-def create_subset_font(input_string, original_font_path = "static/fonts/yqxwk.ttf", output_font_path = "static/fonts/yqxwk_subset.ttf" ):
+def create_subset_font(input_string, original_font_path, output_font_path):
     # 原始字体文件路径，输出子集字体文件路径
     # 指定需要保留的字符
     text_to_keep = input_string
