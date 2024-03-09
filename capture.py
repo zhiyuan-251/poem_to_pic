@@ -7,11 +7,11 @@ import json
 chromeOptions = webdriver.ChromeOptions()
 chromeOptions.add_argument('--headless')
 config = json.loads(open('./static/config.json', 'r', encoding='utf-8').read())
-browser = webdriver.Chrome(service=Service(config["chromedriver_path"]), options=chromeOptions)
+browser = webdriver.Chrome(executable_path=config["chromedriver_path"], options=chromeOptions)
 
 
 def get_one(index, show=False):
-    url = f'http://127.0.0.1:5051/{index}'
+    url = f'http://127.0.0.1:5051/render/{index}'
     browser.get(url)
     time.sleep(1)
     size = browser.get_window_size()
