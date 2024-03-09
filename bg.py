@@ -38,6 +38,11 @@ def index(poemID):
         poem[4] = poem[4].replace('<br>', '\n')
         if poem[5]:
             poem[5] = [foo.replace('<tag>', '#') for foo in poem[5]]
+    
+    create_subset_font(tt, "./static/fonts/yqxwk.ttf", "./static/fonts/yqxwk_subset.ttf") # 生成题目字体    
+    create_subset_font(poem[2], "./static/fonts/kt.ttf", "./static/fonts/kt_subset.ttf") # 生成作者字体
+    create_subset_font(poem[4], "./static/fonts/fs.ttf", "./static/fonts/fs_subset.ttf") # 生成正文字体
+    
     sizes = {(9, 16): (720, 1280), (3, 4): (960, 1280), (2, 3): (960, 1440)}
     sizes_inverse = {(720, 1280): (9, 16), (960, 1280): (3, 4), (960, 1440): (2, 3)}
 
@@ -94,12 +99,9 @@ def index(poemID):
     else:
         style_text += f'\n        #pcontent{{line-height: {1.2 * 13.5 / line_count * linespace_multiplier}em; text-align: justify; font-family: 仿宋}}'
         poemContent = '<p style="margin:0 0 0.5em 0; text-indent: 2em">' + poem[4].replace('\n', '</p><p style="margin:0 0 0.5em 0; text-indent: 2em">') + '</p>'
-    create_subset_font(poemContent, "./static/fonts/fs.ttf", "./static/fonts/fs_subset.ttf")
     tt = poem[1]
-    create_subset_font(tt, "./static/fonts/yqxwk.ttf", "./static/fonts/yqxwk_subset.ttf")
     if len(tt) == 2: tt = tt[0] + ' ' + tt[1]
     at = poem[2]
-    create_subset_font(at, "./static/fonts/kt.ttf", "./static/fonts/kt_subset.ttf")
     if len(at) == 2: at = at[0] + ' ' + at[1]
     return render_template('poem_template.html', poem=poem, style_text=style_text, font_size=font_size,
                            max_width=img.size[0] - 2 * font_size,
