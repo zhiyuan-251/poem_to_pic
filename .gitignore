@@ -1,0 +1,6 @@
+# 默认忽略的文件
+/shelf/
+/workspace.xml
+/output_image/*.png
+/static/background/*.png
+/static/fonts/*.ttf
