@@ -4,3 +4,4 @@
 /output_image/*.png
 /static/background/*.png
 /static/fonts/*.ttf
+/.idea
