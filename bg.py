@@ -89,16 +89,17 @@ def index(poemID):
         font_size = img.size[0] / max(20, len(poem[1]) * 1.5)
         mxchar = 16
     line_count = parse_lines(poem, mxchar)
-    if line_count < 8: line_count = 8
-    style_text += f'''#ptitle{{line-height: {1.5 * 13.5 / line_count * linespace_multiplier}em; text-align: center; font-family: 义启小魏楷; font-size: 1.3em}}
-        #pauthor{{line-height: {1.7 * 12 / line_count}em; text-align: center; font-family: 楷体}}
+    if line_count < 6: line_count = 6
+    if line_count > 12: line_count = 12
+    style_text += f'''#ptitle{{line-height: {1.5 * 15 / line_count * linespace_multiplier}em; text-align: center; font-family: 义启小魏楷; font-size: 1.3em}}
+        #pauthor{{line-height: {1.7 * 10 / line_count}em; text-align: center; font-family: 楷体}}
 '''
     if poem[0] == '诗':
-        style_text += f'\n        #pcontent{{line-height: {1.2 * 13.5 / line_count * linespace_multiplier}em; text-align: center; font-family: 仿宋; margin: 0 -0.3em 0 0.3em}}'
+        style_text += f'\n        #pcontent{{line-height: {1.2 * 15 / line_count * linespace_multiplier}em; text-align: center; font-family: 仿宋; margin: 0 -0.3em 0 0.3em}}'
         poemContent = poem[4].replace('\n', '<br>')
     else:
-        style_text += f'\n        #pcontent{{line-height: {1.2 * 13.5 / line_count * linespace_multiplier}em; text-align: justify; font-family: 仿宋}}'
-        poemContent = '<p style="margin:0 0 0.5em 0; text-indent: 2em">' + poem[4].replace('\n', '</p><p style="margin:0 0 0.5em 0; text-indent: 2em">') + '</p>'
+        style_text += f'\n        #pcontent{{line-height: {1.2 * 15 / line_count * linespace_multiplier}em; text-align: justify; font-family: 仿宋}}'
+        poemContent = '<p style="margin:0 0 0.5em 0; text-indent: 2em">' + poem[4].replace('\n', '</p ><p style="margin:0 0 0.5em 0; text-indent: 2em">') + '</p >'
     tt = poem[1]
     if len(tt) == 2: tt = tt[0] + ' ' + tt[1]
     at = poem[2]

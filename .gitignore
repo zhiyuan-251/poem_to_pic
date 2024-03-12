@@ -2,6 +2,6 @@
 /shelf/
 /workspace.xml
 /output_image/*.png
-/static/background/*.png
+/static/background/*
 /static/fonts/*.ttf
 /.idea
